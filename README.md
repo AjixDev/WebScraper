@@ -40,7 +40,7 @@ $ cd frontend
 $ npm install
 
 # Run the backend server (runs on laravel default localhost:8000)
-$ ng serve
+$ php artisan serve
 
 # Run the frontend server (runs on angular default localhost:4200)
 $ ng serve
