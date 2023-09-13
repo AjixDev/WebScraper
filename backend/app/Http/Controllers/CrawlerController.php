@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 use MongoDB\Client as MongoClient;
 use App\Models\WebPage; // Import the WebPage model
 
-class WebCrawlerController extends Controller {
+class CrawlerController extends Controller {
     public function crawl(Request $request) {
         // Validate the input
         $request->validate([
@@ -46,5 +46,12 @@ class WebCrawlerController extends Controller {
 
     private function isUrlVisited($url) {
         return WebPage::where('url', $url)->exists();
+    }
+
+    public function getCrawlerResults() {
+        // Logic to fetch crawler results from the database
+        $crawlerResults = WebPage::all();
+
+        return response()->json($crawlerResults);
     }
 }
